@@ -1,6 +1,7 @@
 #include <array>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 #include "ipv4.h"
 #include "string_operations.h"
