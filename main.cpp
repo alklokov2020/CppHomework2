@@ -15,7 +15,7 @@ void readIpPool(vector<ipV4>& ipPool)
 {
     for (string line; std::getline(cin, line);)
     {
-        if (line.size() == 0) break;            //считаем пустую строку условием выхода
+        if (line.size() == 0) break;            //СЃС‡РёС‚Р°РµРј РїСѓСЃС‚СѓСЋ СЃС‚СЂРѕРєСѓ СѓСЃР»РѕРІРёРµРј РІС‹С…РѕРґР°
         auto vecLine = split(line, '\t');
         auto vecIp = split(vecLine[0], '.');
         ipV4 ip{ 0, 0, 0, 0 };
@@ -37,22 +37,22 @@ int main()
     {
         vector<ipV4> ipPool;
         readIpPool(ipPool);
-        if (ipPool.size() == 0) return 0;     //Пустые исходные данные
+        if (ipPool.size() == 0) return 0;     //РџСѓСЃС‚С‹Рµ РёСЃС…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ
         
-        //Сортировка по убыванию
+        //РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓР±С‹РІР°РЅРёСЋ
         stable_sortIpVector(ipPool, 3, true);
         stable_sortIpVector(ipPool, 2, true);
         stable_sortIpVector(ipPool, 1, true);
         stable_sortIpVector(ipPool, 0, true);
         printVector(ipPool);
 
-        //Упражняемся с фильтрами
+        //РЈРїСЂР°Р¶РЅСЏРµРјСЃСЏ СЃ С„РёР»СЊС‚СЂР°РјРё
         auto filtered1 = filterIpVector(ipPool, [](ipV4 ip) {return ip[0] == 1; });
         printVector(filtered1);
         auto filtered2 = filterIpVector(ipPool, [](ipV4 ip) {return ip[0] == 46 && ip[1] == 70; });
         printVector(filtered2);
         auto filtered3 = filterIpVector(ipPool, [](ipV4 ip) {return ip[0] == 46 || ip[1] == 46 ||
-                                                                     ip[2] == 46 || ip[3] == 46; });
+                                                                    ip[2] == 46 || ip[3] == 46; });
         printVector(filtered3);
     }
 
